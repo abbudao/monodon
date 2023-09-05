@@ -76,7 +76,7 @@ describe('add-napi generator', () => {
             "release": true,
           },
         },
-        "executor": "@monodon/rust:napi",
+        "executor": "@abbudao/nx-rust:napi",
         "options": Object {
           "dist": "test",
           "jsFile": "index.js",

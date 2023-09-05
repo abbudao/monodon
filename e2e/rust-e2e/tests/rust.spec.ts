@@ -8,8 +8,8 @@ import {
 describe('rust e2e', () => {
   it('should create rust', async () => {
     const plugin = uniq('rust');
-    ensureNxProject('@monodon/rust', 'dist/packages/rust');
-    await runNxCommandAsync(`generate @monodon/rust:rust ${plugin}`);
+    ensureNxProject('@abbudao/nx-rust', 'dist/packages/rust');
+    await runNxCommandAsync(`generate @abbudao/nx-rust:rust ${plugin}`);
 
     const result = await runNxCommandAsync(`build ${plugin}`);
     expect(result.stdout).toContain('Executor ran');
@@ -18,9 +18,9 @@ describe('rust e2e', () => {
   describe('--directory', () => {
     it('should create src in the specified directory', async () => {
       const plugin = uniq('rust');
-      ensureNxProject('@monodon/rust', 'dist/packages/rust');
+      ensureNxProject('@abbudao/nx-rust', 'dist/packages/rust');
       await runNxCommandAsync(
-        `generate @monodon/rust:rust ${plugin} --directory subdir`
+        `generate @abbudao/nx-rust:rust ${plugin} --directory subdir`
       );
       expect(() =>
         checkFilesExist(`libs/subdir/${plugin}/src/index.ts`)
@@ -31,9 +31,9 @@ describe('rust e2e', () => {
   describe('--tags', () => {
     it('should add tags to nx.json', async () => {
       const plugin = uniq('rust');
-      ensureNxProject('@monodon/rust', 'dist/packages/rust');
+      ensureNxProject('@abbudao/nx-rust', 'dist/packages/rust');
       await runNxCommandAsync(
-        `generate @monodon/rust:rust ${plugin} --tags e2etag,e2ePackage`
+        `generate @abbudao/nx-rust:rust ${plugin} --tags e2etag,e2ePackage`
       );
       const nxJson = readJson('nx.json');
       expect(nxJson.projects[plugin].tags).toEqual(['e2etag', 'e2ePackage']);

@@ -9,7 +9,7 @@ export function addBuildExecutor(
   additionalOptions?: BuildExecutorSchema
 ): TargetConfiguration {
   return {
-    executor: '@monodon/rust:build',
+    executor: '@abbudao/nx-rust:build',
     outputs: ['{options.target-dir}'],
     options: {
       ...additionalOptions,
@@ -26,7 +26,7 @@ export function addTestExecutor(
   additionalOptions?: TestExecutorSchema
 ): TargetConfiguration {
   return {
-    executor: '@monodon/rust:test',
+    executor: '@abbudao/nx-rust:test',
     outputs: ['{options.target-dir}'],
     options: {
       ...additionalOptions,
@@ -43,7 +43,7 @@ export function addRunExecutor(
   additionalOptions?: RunExecutorSchema
 ): TargetConfiguration {
   return {
-    executor: '@monodon/rust:run',
+    executor: '@abbudao/nx-rust:run',
     outputs: ['{options.target-dir}'],
     options: {
       ...additionalOptions,
@@ -60,7 +60,7 @@ export function addLintExecutor(
   additionalOptions?: LintExecutorSchema
 ): TargetConfiguration {
   return {
-    executor: '@monodon/rust:lint',
+    executor: '@abbudao/nx-rust:lint',
     outputs: ['{options.target-dir}'],
     options: {
       ...additionalOptions,
@@ -72,7 +72,7 @@ export function addWasmPackExecutor(
   additionalOptions?: WasmPackExecutorSchema
 ): TargetConfiguration {
   return {
-    executor: '@monodon/rust:wasm-pack',
+    executor: '@abbudao/nx-rust:wasm-pack',
     outputs: ['{options.target-dir}'],
     options: {
       ...additionalOptions,

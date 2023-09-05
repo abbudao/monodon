@@ -1,62 +1,62 @@
-# @monodon/rust
+# @abbudao/nx-rust
 
 A Nx plugin that adds support for Cargo and Rust in your Nx workspace.
 
 ## Getting Started
 
 ### Prerequisites 
-The following tools need to be installed on your system to take full advantage of `@monodon/rust`
+The following tools need to be installed on your system to take full advantage of `@abbudao/nx-rust`
 * Node (LTS)
 * Rust / Cargo via [https://rustup.rs](https://rustup.rs)
 
 ### Install with `npx create-nx-workspace` preset
-To bootstrap a new workspace with `@monodon/rust` installed and ready, run:
+To bootstrap a new workspace with `@abbudao/nx-rust` installed and ready, run:
 
 ```shell
-npx create-nx-workspace --preset=@monodon/rust
+npx create-nx-workspace --preset=@abbudao/nx-rust
 ```
 
 ### Installation in already set up workspace
 Use your favourite package manager to install in your project:
 
 ```shell
-yarn add -D @monodon/rust
+yarn add -D @abbudao/nx-rust
 ```
 
 ```shell
-npm install -D @monodon/rust
+npm install -D @abbudao/nx-rust
 ```
 
 ```shell
-pnpm add -D @monodon/rust
+pnpm add -D @abbudao/nx-rust
 ```
 
 #### Initialization 
 
-After installing, you can run any of the project generators (binary, library) to have @monodon/rust set up Cargo in your workspace.
+After installing, you can run any of the project generators (binary, library) to have @abbudao/nx-rust set up Cargo in your workspace.
 
 ## Generators
 Use Nx Console to see the full list of options for each generator. 
 
-### `@monodon/rust:binary`
+### `@abbudao/nx-rust:binary`
 Creates a Rust binary application to be run independently.
 
 > Create a new binary:
 > ```shell
-> nx generate @monodon/rust:binary my-rust-app 
+> nx generate @abbudao/nx-rust:binary my-rust-app 
 > ```
 
-### `@monodon/rust:library`
+### `@abbudao/nx-rust:library`
 Creates a Rust library that can be used in binaries, or compiled to be used for napi. 
 
 > Create a new library:
 > ```shell
-> nx generate @monodon/rust:library my-rust-lib
+> nx generate @abbudao/nx-rust:library my-rust-lib
 > ```
 
 > Create a new library with napi:
 > ```shell
-> nx generate @monodon/rust:library my-rust-node-lib --napi
+> nx generate @abbudao/nx-rust:library my-rust-node-lib --napi
 > ```
 
 #### Napi
@@ -75,20 +75,20 @@ All the executors support these additional properties:
   * [Cargo features](https://doc.rust-lang.org/cargo/reference/features.html)
 * all-features
 
-### `@monodon/rust:build`
+### `@abbudao/nx-rust:build`
 Runs cargo to build the project
 > Not supported with napi
 
-### `@monodon/rust:lint`
+### `@abbudao/nx-rust:lint`
 Runs cargo clippy to link the project
 
-### `@monodon/rust:napi`
+### `@abbudao/nx-rust:napi`
 Runs the napi cli to build the project
 
-### `@monodon/rust:run`
+### `@abbudao/nx-rust:run`
 Runs `cargo run` for the project
 > Not supported with napi
  
-### `@monodon/rust:test`
+### `@abbudao/nx-rust:test`
 Runs `cargo test` for the project
 
