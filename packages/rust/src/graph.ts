@@ -1,20 +1,19 @@
 import {
-  NxPlugin,
   ProjectGraph,
   ProjectGraphBuilder,
-  ProjectGraphProcessorContext,
   ProjectTargetConfigurator,
   TargetConfiguration,
-  createProjectFileMapUsingProjectGraph,
   workspaceRoot,
+  readProjectsConfigurationFromProjectGraph,
 } from '@nx/devkit';
+import { fileHasher } from 'nx/src/hasher/file-hasher';
 import { Package } from './models/cargo-metadata';
 import { cargoMetadata } from './utils/cargo';
 import { ProjectGraphProcessor } from 'nx/src/config/project-graph';
+import { createProjectFileMap } from 'nx/src/project-graph/file-map-utils';
 
 export const processProjectGraph: ProjectGraphProcessor = async (
   graph: ProjectGraph,
-  ctx: ProjectGraphProcessorContext
 ): Promise<ProjectGraph> => {
   const metadata = cargoMetadata();
   if (!metadata) {
@@ -22,9 +21,12 @@ export const processProjectGraph: ProjectGraphProcessor = async (
   }
 
   const { packages: cargoPackages } = metadata;
-  const fileMap = await createProjectFileMapUsingProjectGraph(graph);
+  const configs = readProjectsConfigurationFromProjectGraph(graph)
+  await fileHasher.ensureInitialized()
+  const files = fileHasher.allFileData();
+  const { projectFileMap }= createProjectFileMap(configs, files);
 
-  const builder = new ProjectGraphBuilder(graph, fileMap);
+  const builder = new ProjectGraphBuilder(graph, projectFileMap);
 
   const cargoPackageMap = cargoPackages.reduce((acc, p) => {
     if (!acc.has(p.name)) {
