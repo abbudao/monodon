@@ -50,7 +50,7 @@ export default async function (tree: Tree, options: AddNapiGeneratorSchema) {
     targets: {
       ...project.targets,
       build: {
-        executor: '@monodon/rust:napi',
+        executor: '@abbudao/nx-rust:napi',
         options: {
           dist: normalizedOptions.projectRoot,
           jsFile: 'index.js',
