@@ -1,6 +1,6 @@
 {
   "name": "@abbudao/nx-rust",
-  "version": "1.2.2",
+  "version": "1.2.4",
   "main": "src/index.js",
   "repository": {
     "url": "https://github.com/cammisuli/monodon",
