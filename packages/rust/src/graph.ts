@@ -53,9 +53,7 @@ export const createDependencies: CreateDependencies = (context) => {
     const { packages: cargoPackages } = metadata;
 
     for (const pkg of cargoPackages) {
-      const path =
-        // pkg.targets.find((target) => target.name === pkg.name)?.src_path ??
-        pkg.manifest_path.replace(/\\/g, '/');
+      const path = pkg.manifest_path.replace(/\\/g, '/');
       const workspaceRootClean = workspaceRoot.replace(/\\/g, '/');
       const sourceFile = path.replace(`${workspaceRootClean}/`, '');
 
