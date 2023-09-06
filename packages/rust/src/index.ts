@@ -1,11 +1,10 @@
-import { NxPlugin } from '@nx/devkit';
-import { processProjectGraph, registerProjectTargets } from './graph';
+import { NxPluginV2 } from '@nx/devkit';
+import { createNodes, createDependencies } from './graph';
 
-const nxPlugin: NxPlugin = {
+const nxPlugin: NxPluginV2 = {
   name: '@abbudao/nx-rust',
-  processProjectGraph,
-  projectFilePatterns: ['Cargo.toml'],
-  registerProjectTargets,
+  createNodes: ['Cargo.toml', createNodes],
+  createDependencies,
 };
 
 export = nxPlugin;
